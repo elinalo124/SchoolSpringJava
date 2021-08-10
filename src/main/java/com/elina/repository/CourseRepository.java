@@ -1,17 +1,10 @@
 package com.elina.repository;
 
 import com.elina.model.Course;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-/*@Repository
-public interface CourseRepository extends JpaRepository<Course, Long> {
-    List<Course> findById(int id);
-    List<Course> findAllByOrderByIdAsc();
-
-}
- */
-public interface CourseRepository {
-    List<Course> findAll();
+public interface CourseRepository extends CrudRepository<Course, Long> {
+    List<Course> findByName(String name);
 }

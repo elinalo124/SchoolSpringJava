@@ -1,25 +1,23 @@
 package com.elina.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-//@Entity
+
 @Getter
 @Setter
 //@AllArgsConstructor
-//@NoArgsConstructor
-//@Component
+//@NoArgsConstructo
+@Entity
 public class Course {
 
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id
+    @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
 
