@@ -1,0 +1,32 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE-MODULE" class="ch.qos.logback.core.FileAppender">
+        <file>/Users/elinalo/IdeaProjects/module.log</file>
+        <encoder>
+            <pattern>
+                %date %level [%thread] %logger{10} [%file:%line] %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <logger name="org.hibernate.SQL" level="trace" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE-MODULE"/>
+    </logger>
+    <logger name="org.hibernate.type.descriptor.sql" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE-MODULE"/>
+    </logger>
+    <logger name="org.hibernate.type" level="ALL" />
+    <logger name="org.hibernate" level="DEBUG" />
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE-MODULE"/>
+    </root>
+
+</configuration>

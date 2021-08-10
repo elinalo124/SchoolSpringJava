@@ -9,7 +9,6 @@ import java.util.List;
 @Repository("courseRepository")
 public class CourseRespositoryImpl implements CourseRepository{
 
-    @Override
     public List<Course> findAll(){
         List<Course> courses = new ArrayList<Course>();
 

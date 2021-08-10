@@ -5,14 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 //@Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Component
 public class Course {
 
     //@Id
@@ -26,5 +28,5 @@ public class Course {
     //@ManyToOne
     //@JoinColumn(name="department_id")
     //@JsonBackReference
-    private Department department;
+    //private Department department;
 }
