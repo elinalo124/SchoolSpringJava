@@ -10,22 +10,22 @@ import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
-//@Entity
-//@Getter
-//@Setter
-//@AllArgsConstructor
-//@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Department {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    /*
+
     @JsonManagedReference
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
     private List<Course> courses = new LinkedList<>();
 
-     */
+
 }

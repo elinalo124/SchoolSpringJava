@@ -2,15 +2,16 @@ package com.elina.service;
 
 import com.elina.model.Course;
 import com.elina.repository.CourseRepository;
-import com.elina.repository.CourseRespositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service("courseService")
-public class CourseServiceImpl {
+@Transactional
+public class CourseServiceImpl implements CourseService{
 
     private CourseRepository repository;
 
@@ -24,6 +25,28 @@ public class CourseServiceImpl {
         System.out.println("Setting repo for CourseServiceImpl");
     }
 
+    public void save(Course course){
+        repository.save(course);
+    }
+
+    public Course findById(Long id){
+        return repository.findById(id).get();
+    }
+
+    public List<Course> findByName(String name){
+        return repository.findByName(name);
+    }
+
+    public List<Course> findAll(){
+        return (List<Course>) repository.findAll();
+    }
+
+    public void deleteById(Long id){
+        repository.deleteById(id);
+    }
+
+
+    /*
     public void test() {
         // Save a new course
         Course newCourse = new Course();
@@ -48,6 +71,7 @@ public class CourseServiceImpl {
         long count = repository.count();
         System.out.println("Number of courses: " + count);
     }
+     */
 
 
 }

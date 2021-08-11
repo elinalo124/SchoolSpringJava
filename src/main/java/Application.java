@@ -1,4 +1,4 @@
-import com.elina.service.CourseService;
+import com.elina.config.AppConfig;
 import com.elina.service.CourseServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -11,7 +11,7 @@ public class Application {
         ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
         CourseServiceImpl courseService = (CourseServiceImpl) appContext.getBean("courseService");
-        courseService.test();
+        //courseService.test();
 
     }
 }

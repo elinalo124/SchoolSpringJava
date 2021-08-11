@@ -1,3 +1,5 @@
+package com.elina.config;
+
 import com.elina.repository.CourseRepository;
 import com.elina.repository.CourseRespositoryImpl;
 import com.elina.service.CourseService;

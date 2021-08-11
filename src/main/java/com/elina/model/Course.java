@@ -9,8 +9,8 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-//@AllArgsConstructor
-//@NoArgsConstructo
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Course {
 
@@ -23,8 +23,8 @@ public class Course {
 
     private String description;
 
-    //@ManyToOne
-    //@JoinColumn(name="department_id")
-    //@JsonBackReference
-    //private Department department;
+    @ManyToOne
+    @JoinColumn(name="department_id")
+    @JsonBackReference
+    private Department department;
 }
