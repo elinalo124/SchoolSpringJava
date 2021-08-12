@@ -7,16 +7,15 @@ import lombok.AllArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+//@Controller
+@RestController
 public class CourseController {
 
     private CourseServiceImpl courseServiceImpl;
@@ -26,6 +25,28 @@ public class CourseController {
         this.courseServiceImpl = courseServiceImpl;
     }
 
+    @GetMapping("/course")
+    public Course getCourse(@RequestParam(value = "id") Long id){
+        Course course = courseServiceImpl.findById(id);
+        System.out.println("get Course\n"+ course);
+        return course;
+    }
+
+    @GetMapping("/courses")
+    public List<Course> getAllCourses(){
+        List<Course> courses = courseServiceImpl.findAll();
+        System.out.println("All courses\n"+courses);
+        return courses;
+    }
+
+
+    @PostMapping("/course")
+    public void saveCourse(@RequestBody Course newCourse){
+        System.out.println("Controller is saving:\n"+newCourse);
+        courseServiceImpl.save(newCourse);
+    }
+
+    /*
     @RequestMapping("/")
     public ModelAndView home() {
         List<Course> listCourse = courseServiceImpl.findAll();
@@ -34,6 +55,7 @@ public class CourseController {
         return mav;
     }
 
+    //CREATE
     @RequestMapping("/new")
     public String newCourseForm(Map<String, Object> model) {
         Course course = new Course();
@@ -61,6 +83,8 @@ public class CourseController {
         courseServiceImpl.deleteById(id);
         return "redirect:/";
     }
+     */
+
 
 
 }

@@ -20,8 +20,7 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>E-mail</th>
-            <th>Address</th>
+            <th>Description</th>
             <th>Action</th>
         </tr>
         <c:forEach items="${listCourse}" var="course">

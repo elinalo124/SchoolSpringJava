@@ -27,4 +27,14 @@ public class Course {
     @JoinColumn(name="department_id")
     @JsonBackReference
     private Department department;
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", department=" + department +
+                '}';
+    }
 }

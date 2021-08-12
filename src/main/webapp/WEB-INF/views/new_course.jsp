@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> < %-- To define form --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,7 +11,6 @@
 <body>
 <div align="center">
     <h2>New Course</h2>
-    <%--@elvariable id="course" type=""--%>
     <form:form action="save" method="post" modelAttribute="course">
         <table border="0" cellpadding="5">
             <tr>
@@ -19,7 +18,7 @@
                 <td><form:input path="name" /></td>
             </tr>
             <tr>
-                <td>Email: </td>
+                <td>Description: </td>
                 <td><form:input path="description" /></td>
             </tr>
             <tr>

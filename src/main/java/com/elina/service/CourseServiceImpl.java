@@ -26,6 +26,7 @@ public class CourseServiceImpl implements CourseService{
     }
 
     public void save(Course course){
+        System.out.println("Service is saving:\n"+course);
         repository.save(course);
     }
 
