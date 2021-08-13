@@ -46,6 +46,20 @@ public class CourseServiceImpl implements CourseService{
         repository.deleteById(id);
     }
 
+    public Course updateById(Course newCourse, Long id) {
+        return repository.findById(id)
+                .map(course -> {
+                    course.setName(newCourse.getName());
+                    course.setDescription(newCourse.getDescription());
+                    course.setDepartment(newCourse.getDepartment());
+                    return repository.save(course);
+                })
+                .orElseGet(() -> {
+                    newCourse.setId(id);
+                    return repository.save(newCourse);
+                });
+    }
+
 
     /*
     public void test() {

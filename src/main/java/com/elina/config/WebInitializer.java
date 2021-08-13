@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 public class WebInitializer implements WebApplicationInitializer {
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
@@ -20,4 +21,6 @@ public class WebInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("/");
 
     }
+
+
 }

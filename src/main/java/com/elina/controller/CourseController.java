@@ -1,20 +1,11 @@
 package com.elina.controller;
 
 import com.elina.model.Course;
-import com.elina.service.CourseService;
 import com.elina.service.CourseServiceImpl;
-import lombok.AllArgsConstructor;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-//@Controller
 @RestController
 public class CourseController {
 
@@ -25,8 +16,16 @@ public class CourseController {
         this.courseServiceImpl = courseServiceImpl;
     }
 
-    @GetMapping("/course")
-    public Course getCourse(@RequestParam(value = "id") Long id){
+    //CREATE
+    @PostMapping("/courses")
+    public void saveCourse(@RequestBody Course newCourse){
+        System.out.println("Controller is saving:\n"+newCourse);
+        courseServiceImpl.save(newCourse);
+    }
+
+    //RETRIEVE
+    @GetMapping("/courses/{id}")
+    public Course getCourse(@PathVariable("id") Long id){
         Course course = courseServiceImpl.findById(id);
         System.out.println("get Course\n"+ course);
         return course;
@@ -38,12 +37,16 @@ public class CourseController {
         System.out.println("All courses\n"+courses);
         return courses;
     }
+    //UPDATE
+    @PutMapping("/courses/{id}")
+    Course replaceCourse(@RequestBody Course newCourse, @PathVariable Long id) {
+        return courseServiceImpl.updateById(newCourse, id);
+    }
 
-
-    @PostMapping("/course")
-    public void saveCourse(@RequestBody Course newCourse){
-        System.out.println("Controller is saving:\n"+newCourse);
-        courseServiceImpl.save(newCourse);
+    //DELETE
+    @DeleteMapping("/courses/{id}")
+    void deleteEmployee(@PathVariable Long id) {
+        courseServiceImpl.deleteById(id);
     }
 
     /*
@@ -84,7 +87,5 @@ public class CourseController {
         return "redirect:/";
     }
      */
-
-
 
 }
